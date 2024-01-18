@@ -200,7 +200,8 @@ function parse8(str) {
 function parse64(str) {
   res = ""
   for (const c of str) {
-    res += B64.indexOf(c).toString(8); 
+    const i = B64.indexOf(c);
+    res += (i < 8 ? "0": "") + B64.indexOf(c).toString(8); 
   }
   return res;
 }
