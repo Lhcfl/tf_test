@@ -27,6 +27,19 @@ window.addEventListener("DOMContentLoaded", async function () {
     "</ol>";
 
   console.log(data);
+  const para = new URLSearchParams(this.window.location.search);
+  if (para.get("a")) {
+    para.get("a")?.split("|")?.forEach(str => {
+      if (str) {
+        const [problem_id, answerStr] = str.split(":");
+        const answer = answerStr.split(",");
+        answer.forEach(ans_id => {
+          $(`#problem-${problem_id}-ans-${ans_id}`).click();
+        })
+      }
+    });
+    submit();
+  }
 });
 
 
@@ -94,13 +107,18 @@ function submit() {
   const score_max = {}
   /** @type {Record<string, Record<number, number>>} */
   const score_of_problem = {};
+
   // Initialize
   Object.keys(data.groups).forEach(groupName => {
     score[groupName] ??= 0;
     score_max[groupName] ??= 0;
     score_of_problem[groupName] ??= {};
   })
+  
+  let paraStr = "";
   data.problems.forEach((problem, problem_id) => {
+    paraStr += String(problem_id) + ":";
+
     Object.keys(problem.group).forEach(g => {
       score_of_problem[g][problem_id] ??= 0;
     });
@@ -132,16 +150,31 @@ function submit() {
       const id = `problem-${problem_id}-ans-${ans_id}`;
       Object.keys(problem.group).forEach(g => {
         if (document.getElementById(id).checked) {
+          paraStr += ans_id + ","
           score[g] += (ans.score ?? 0) * (problem.group[g] ?? 1);
           score_of_problem[g][problem_id] += (ans.score ?? 0) * (problem.group[g] ?? 1);
         }
       });
     });
+    paraStr += "|"
   });
+
   console.log(score);
   console.log(score_max);
   console.log(score_of_problem);
   genResult(score, score_max, score_of_problem);
 
+  history.pushState(null, null, window.location.href.split("?")[0] + "?a=" + paraStr);
+  
   window.scrollTo(0, 999999999);
+}
+
+function share() {
+  if (navigator.canShare) {
+    navigator.share({
+      url: window.location.href
+    })
+  } else {
+    alert("浏览器不支持分享喵，请手动复制现在的url")
+  }
 }
