@@ -1,5 +1,6 @@
 /**@type {import("../types/type").Data} */
 const data = JSON.parse(test_data_raw);
+const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-|"
 
 window.addEventListener("DOMContentLoaded", async function () {
   this.document.getElementById("problem-container").innerHTML = "<ol>" + 
@@ -33,6 +34,17 @@ window.addEventListener("DOMContentLoaded", async function () {
       if (str) {
         const [problem_id, answerStr] = str.split(":");
         const answer = answerStr.split(",");
+        answer.forEach(ans_id => {
+          $(`#problem-${problem_id}-ans-${ans_id}`).click();
+        })
+      }
+    });
+    submit();
+  }
+  if (para.get("b")) {
+    parse64(para.get("b")).split("7").forEach((str, problem_id) => {
+      if (str) {
+        const answer = str.split("6");
         answer.forEach(ans_id => {
           $(`#problem-${problem_id}-ans-${ans_id}`).click();
         })
@@ -117,8 +129,6 @@ function submit() {
   
   let paraStr = "";
   data.problems.forEach((problem, problem_id) => {
-    paraStr += String(problem_id) + ":";
-
     Object.keys(problem.group).forEach(g => {
       score_of_problem[g][problem_id] ??= 0;
     });
@@ -148,15 +158,15 @@ function submit() {
 
     problem.ans.forEach((ans, ans_id) => {
       const id = `problem-${problem_id}-ans-${ans_id}`;
-      Object.keys(problem.group).forEach(g => {
-        if (document.getElementById(id).checked) {
-          paraStr += ans_id + ","
+      if (document.getElementById(id).checked) {
+        paraStr += Number(ans_id).toString(6) + "6";
+        Object.keys(problem.group).forEach(g => {
           score[g] += (ans.score ?? 0) * (problem.group[g] ?? 1);
           score_of_problem[g][problem_id] += (ans.score ?? 0) * (problem.group[g] ?? 1);
-        }
-      });
+        });
+      }
     });
-    paraStr += "|"
+    paraStr += "7";
   });
 
   console.log(score);
@@ -164,9 +174,35 @@ function submit() {
   console.log(score_of_problem);
   genResult(score, score_max, score_of_problem);
 
-  history.pushState(null, null, window.location.href.split("?")[0] + "?a=" + paraStr);
+  history.pushState(null, null, window.location.href.split("?")[0] + "?b=" + parse8(paraStr));
   
   window.scrollTo(0, 999999999);
+}
+
+/**
+ * 
+ * @param {string} str 
+ */
+function parse8(str) {
+  let res = "";
+  if (str.length % 2 == 1) {
+    str += "7";
+  }
+  for (let i = 0; i < str.length; i += 2) {
+    res += B64[parseInt(str.slice(i, i+2), 8)];
+  }
+  return res;
+}
+/**
+ * 
+ * @param {string} str 
+ */
+function parse64(str) {
+  res = ""
+  for (const c of str) {
+    res += B64.indexOf(c).toString(8); 
+  }
+  return res;
 }
 
 function share() {
