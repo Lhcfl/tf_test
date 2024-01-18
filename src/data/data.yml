@@ -1,0 +1,480 @@
+groups:
+  basic:
+    name: "<ruby>基础<rt>送分</rt></ruby>题"
+    description: 这个应该真的是送分吧？
+    weight: 3
+  hrt_advanced:
+    name: "HRT进阶题"
+    description: HRT 相关的稍进阶题目。虽然说是进阶，如果你是跨性别女性的话，最好还是全部掌握比较好哦。
+  social_stereotype:
+    name: "社会刻板印象女性化分数"
+    description: 社会刻板印象下的女性化分数。越接近100%，你越符合社会刻板下的女性形象（这不一定是好事）。越接近0%，你越符合社会刻板印象下的男性形象（这也不一定是坏事！）
+    weight: 0.5
+  pass:
+    name: "Pass基础分数"
+    description: 衡量你凭第一印象pass的容易程度。越接近100%，你越容易花费比人更少的努力Pass
+    weight: 0.5
+  xiaoquanzi:
+    name: "<ruby>社群<rt>小圈子</rt></ruby>沉浸度"
+    description: 衡量<ruby>社群<rt>小圈子</rt></ruby>黑话的使用丰富度和跨性别相关内容的了解深度。通常在对自己的跨性别认同非常高，或者<ruby>社群<rt>小圈子</rt></ruby>参与度非常高的人身上取得高分。希望你不要拿满分（笑）
+  politics:
+    name: "政治激进度 (TBD)"
+    description: 衡量你的跨性别相关政治议题激进程度（等待施工）
+    weight: 0
+
+problems:
+  - raw: "**雌二醇 (Estradiol)** 是一种" 
+    ans:
+      - raw: 雌激素
+        score: 1
+      - raw: 抗雄激素
+      - raw: 孕激素
+    group:
+      # 在 basic 组中有 1 的权重
+      basic: 1
+  - raw: "**色谱龙**的有效成分为" 
+    ans:
+      - raw: 醋酸环丙孕酮
+        score: 1
+      - raw: 雌二醇环丙孕酮
+      - raw: 戊酸雌二醇
+      - raw: 黄体酮
+    group:
+      basic: 1
+  - raw: |
+      > “性别认同障碍”（或称：易性症[7]、性身份障碍、性别识别障碍）在DSM-5（2013年出版）中被重新分类为“性别不安”，以消除与术语“障碍”相关的污名。[8]在ICD-11（2022年生效）中，其被重新命名为“性别不一致”。 ——[Wikipedia](https://zh.wikipedia.org/wiki/%E6%80%A7%E5%88%A5%E4%B8%8D%E4%B8%80%E8%87%B4)
+      
+      下列选项中正确的是
+    ans:
+      - raw: 性别不安可能是一些人产生心理健康问题的诱因
+        score: 1
+      - raw: 性别不安是一种精神疾病
+      - raw: 女性倾向跨性别者一定喜欢男性
+      - raw: 性别不一致者不会因性兴奋而变装。
+    group:
+      basic: 1
+  - raw: "请选择你看得懂的缩写" 
+    type: multi
+    ans:
+      - raw: GAHT
+        score: 0.5
+      - raw: HRT
+        score: 1
+      - raw: FFS
+        score: 1
+      - raw: SRS
+        score: 1
+      - raw: GRS
+        score: 1
+      - raw: GD/GID
+        score: 1
+      - raw: CD
+        score: 1
+      - raw: TS
+        score: 1
+      - raw: MtF
+        score: 1
+      - raw: AMAB
+        score: 0.5
+      - raw: TDoR
+        score: 0.5
+    group:
+      basic: 0.5
+  - raw: "激素六项经常会看到pmol/L或者pg/mL这样的单位。他们的关系是" 
+    ans:
+      - raw: "取决于具体物质，没有固定关系"
+        score: 1
+      - raw: "1 pg/mL ≈ 3.67 pmol/L"
+      - raw: "1 pg/mL ≈ 3.46 pmol/L"
+      - raw: "1 pg/mL ≈ 12 pmol/L"
+    group:
+      hrt_advanced: 1
+  - raw: "下列可能出现的缩写，你认识的有：" 
+    type: multi
+    ans:
+      - raw: GnRH
+        score: 1
+      - raw: E2
+        score: 1
+      - raw: T
+        score: 1
+      - raw: LH
+        score: 1
+      - raw: FSH
+        score: 1
+    group:
+      hrt_advanced: 1
+  - raw: "对于一般的跨性别女性，通常推荐的雄激素水平为：*(Hint: 参考 <https://docs.hrt.guide/parts/Part0.html>)*" 
+    ans:
+      - raw: "小于 50ng/dL"
+        score: 1
+      - raw: "小于 30ng/dL"
+      - raw: "小于 100ng/dL"
+      - raw: "小于 20ng/dL"
+    group:
+      hrt_advanced: 1
+  - raw: "下列药物中，哪些是合成雌激素，不被推荐使用" 
+    ans:
+      - raw: "妈富隆 (Desogestrel)"
+        score: 1
+      - raw: "补佳乐 (Progynova)"
+      - raw: "爱思妥 (Estradiol)"
+      - raw: "诺坤复 (Estrofem)"
+    note: 见 <https://docs.hrt.guide/parts/Part2.html#%E5%A4%A9%E7%84%B6%E9%9B%8C%E6%BF%80%E7%B4%A0-bioidentical-estrogens>
+    group:
+      hrt_advanced: 1
+  - raw: "经微粉化的戊酸雌二醇片通常可以舌下含服。"
+    ans: 
+      - raw: "是"
+        score: 1
+      - raw: "否"
+    note:  见 <https://tfsci.mtf.wiki/zh-cn/articles/sublingual-ev/>
+    group:
+      hrt_advanced: 1
+  - raw: "相较于吞服，舌下含服雌二醇的主要好处是"
+    ans:
+      - raw: 避免了肝脏的首过效应，降低肝脏负担，增加**生物利用率**
+        score: 1
+      - raw: 口服雌二醇会导致非常高的尖峰水平，舌下含服可以保持更稳定的水平。
+      - raw: 舌下含服雌二醇的**吸收率**比口服更高
+      - raw: 舌下含服雌二醇可以降低血栓风险
+    note: |
+      - 当雌二醇用于口服时，一部分在体内会被胃酸破坏，而剩下的则被肝脏代谢掉. 肝脏将会把有效的雌二醇转化成效力较低的雌酮 (Estrone; E1) 与硫酸雌酮 (Estrone sulfate; E1S)，这在长期的使用下也会加重对肝脏的负担. 但如果把雌二醇作为含服来使用，口腔粘膜能将一定分量的雌二醇直接吸收到血液中，这能大量的避免经过肝脏代谢，从而导致更高的利用度.  
+      - 舌下含服雌二醇会导致非常高的尖峰水平，相对而言口服雌二醇更能保持较稳定的水平
+      - 雌二醇的吸收迅速且完全，无论是口服还是含服都有很好的吸收率，吸收率的影响不是主要原因。
+      - 没有证据说明舌下含服雌二醇可以降低血栓风险
+    group:
+      hrt_advanced: 0.5
+  - raw: "戊酸雌二醇本身具有雌激素活性（可以与雌激素受体结合）"
+    ans:
+      - raw: 是
+      - raw: 否
+        score: 1
+    note: 戊酸雌二醇**本身**不具有雌激素活性。需要在体内代谢成雌二醇才具有雌激素活性。
+    group:
+      hrt_advanced: 1
+  - raw: "你头发的长度"
+    dont_shuffle: true
+    ans:
+      - raw: "完全没盖住耳朵"
+        score: 0
+      - raw: "盖住部分耳朵"
+        score: 0.5
+      - raw: "完整盖住耳朵"
+        score: 1
+      - raw: "长发披肩（及以上）"
+        score: 1.3
+    group:
+      social_stereotype: 3
+      pass: 3
+  - raw: "你在他人面前穿裙子的频率是（不讨论你喜不喜欢和愿不愿意）"
+    dont_shuffle: true
+    ans:
+      - raw: "这辈子不可能的（0次）"
+        score: 0
+      - raw: "一只手数的过来（没穿过超过5次）"
+        score: 0.1
+      - raw: "很少（在适合的天气有10%以下的时间穿裙子）"
+        score: 0.7
+      - raw: "偶尔（在适合的天气有10~30%的日子穿裙子）"
+        score: 1
+      - raw: "经常（在适合的天气有30~70%的日子穿裙子）"
+        score: 1.1
+      - raw: "裙子就是我的命（在适合的天气有70%以上的日子穿裙子）"
+        score: 1.3
+    group:
+      social_stereotype: 1
+      pass: 0.5
+  - raw: "评价你自己的声音"
+    dont_shuffle: true
+    ans:
+      - raw: "超级男（抱歉！）（无论打扮得多女性化，都会被一声听出是男性）"
+        score: 0
+      - raw: "男（即使被认成女生，听到声音后，偶尔会被人改口喊先生）"
+        score: 0.25
+      - raw: "中性偏男（小姑娘你的声音听上去有点性感？）"
+        score: 0.5
+      - raw: "纯中间（打扮成男孩子不会有人问，打扮成女孩子还是不会有人问）"
+        score: 0.75
+      - raw: "中性偏女（打扮成男孩的时候会被问你的声音怎么有点秀气）"
+        score: 1
+      - raw: "女（即使被认成男生，听到声音后，偶尔会被人改口喊女士）"
+        score: 1.5
+      - raw: "超级女（就算寸头男装，一开口别人认为你是女性了）"
+        score: 1.5
+    group:
+      social_stereotype: 1.5
+      pass: 3
+  - raw: "你的罩杯大小"
+    dont_shuffle: true
+    ans:
+      - raw: "小妹妹你还不需要穿内衣哦（不到AA）"
+        score: 0
+      - raw: "AA"
+        score: 0.1
+      - raw: "A"
+        score: 0.3
+      - raw: "B"
+        score: 0.7
+      - raw: "C"
+        score: 0.9
+      - raw: "D"
+        score: 1.1
+      - raw: "你胸大你说了算（大于D）"
+        score: 1.5
+    group:
+      social_stereotype: 1
+      pass: 2
+  - raw: "你的身高"
+    dont_shuffle: true
+    ans:
+      - raw: "小于160cm"
+        score: 1.1
+      - raw: "~170cm（你在身高平均较矮的地区），~175cm（你在身高平均较高的地区）"
+        score: 1
+      - raw: "~180cm（你在身高平均较矮的地区），~185cm（你在身高平均较高的地区）"
+        score: 0.9
+      - raw: "~190cm"
+        score: 0.7
+      - raw: "190cm+"
+        score: 0.8
+    note: 如果太高，你可能因为被当成运动员而反而增加pass度）
+    group:
+      social_stereotype: 1
+      pass: 1.5
+  - raw: 你的选科
+    dont_shuffle: true
+    ans:
+      - raw: "纯理"
+        score: 0.5
+      - raw: "文理兼备"
+        score: 1
+      - raw: "纯文"
+        score: 1
+    note: 社会刻板印象会觉得男性从事任何职业都是理所当然的，只会对女性有限制。摊手。
+    group:
+      social_stereotype: 1
+  - raw: 你开始HRT的年龄
+    dont_shuffle: true
+    ans:
+      - raw: "尚未开始"
+        score: 0
+      - raw: "13岁及以前（天赋党xmsl）"
+        score: 1
+      - raw: "16岁及以前"
+        score: 0.8
+      - raw: "20岁及以前"
+        score: 0.6
+      - raw: "20岁以后"
+        score: 0.4
+    group:
+      pass: 1
+  - raw: "你会经常把服用激素药物的行为叫做吃糖"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你的床上有宜家鲨鲨"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你的头像里有着蓝粉白旗帜"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你的昵称里有🏳️‍⚧️或🍥"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你的bio里放着自己的性别认同/年龄/HRT日期"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你是街机厅的常客"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你买过至少一次钡盐或者亚硝酸钠（仅限这两种）"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你的推特账号的粉丝数"
+    dont_shuffle: true
+    ans:
+      - raw: "大于1000"
+        score: 4
+      - raw: "大于500"
+        score: 2
+      - raw: "大于200"
+        score: 1
+      - raw: "小于200"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "你在这些方面有不错的知识"
+    type: multi
+    ans:
+      - raw: "计算机"
+        score: 1
+      - raw: "语言学"
+        score: 1
+      - raw: "交通/铁路"
+        score: 1
+      - raw: "药学"
+        score: 1
+    group:
+      xiaoquanzi: 1
+  - raw: "你确诊至少一项精神疾病。当然，性别不一致（和其旧称）不是精神疾病。"
+    dont_shuffle: true
+    ans:
+      - raw: "是"
+        score: 1
+      - raw: "否"
+        score: 0
+    group:
+      xiaoquanzi: 1
+  - raw: "自伤（自残）相关"
+    dont_shuffle: true
+    ans:
+      - raw: "你从不自伤（好耶）"
+        score: 0
+      - raw: "你曾经自伤过，现在一般不这样了（加油）"
+        score: 0.5
+      - raw: "到现在你仍然时常会自伤（揉揉）"
+        score: 1
+    group:
+      xiaoquanzi: 1
+  - raw: "od相关"
+    dont_shuffle: true
+    ans:
+      - raw: "od是什么？"
+        score: -1
+      - raw: "你从不od"
+        score: 0
+      - raw: "你曾经od过，现在不这样了"
+        score: 1
+      - raw: "到现在你仍然时常会od"
+        score: 2
+    group:
+      xiaoquanzi: 1
+  - raw: "选出你看得懂的黑话/知晓的事件/玩过的游戏/看过的作品"
+    type: multi
+    ans:
+      - raw: "好pass的ftm小哥哥"
+        score: 1
+      - raw: "木桶饭清蒸协会"
+        score: 1
+      - raw: "参宿四"
+        score: 1
+      - raw: "56172"
+        score: 1
+    group:
+      xiaoquanzi: 0.5
+  - raw: "选出你玩过的游戏/看过的作品"
+    type: multi
+    ans:
+      - raw: "One night, hot springs [（链接）](https://store.steampowered.com/app/917680)"
+        score: 1
+      - raw: "恋爱绮谭～不存在的夏天～ [（链接）](https://store.steampowered.com/app/1345740)"
+        score: 1
+      - raw: "直到我不再是我"
+        score: 1
+      - raw: "致性别蒙娜丽莎的你"
+        score: 1
+      - raw: "不可解的我的一切"
+        score: 1
+      - raw: "女の子になりたい（まふまふ）"
+        score: 1
+      - raw: "午夜天鹅 [（链接）](https://movie.douban.com/subject/34858550/)"
+        score: 1
+      - raw: "别当欧尼酱了！"
+        score: 1
+      - raw: "笨蛋，测验，召唤兽"
+        score: 1
+      - raw: "后街女孩"
+        score: 1
+      - raw: "放浪息子 [（链接）](https://www.bilibili.com/bangumi/media/md951)"
+        score: 1
+    group:
+      xiaoquanzi: 0.3
+  - raw: "这些项目/网站/教程/社区/百科中，你曾听说过"
+    type: multi
+    ans:
+      - raw: "Project Trans (Mtf.wiki, FtM.wiki)"
+        score: 1
+      - raw: "One Among Us"
+        score: 1
+      - raw: "Futarino"
+        score: 0.1
+      - raw: "limelight"
+        score: 1
+      - raw: "蓝天粉梦"
+        score: 1
+      - raw: "Translives"
+        score: 1
+      - raw: "今天你们很可爱吧"
+        score: 1
+      - raw: "女性倾向跨性别者科学 [（链接）](https://tfsci.mtf.wiki/zh-cn/)"
+        score: 1
+      - raw: "Shizu's HRT Guide [（链接）](https://docs.hrt.guide)"
+        score: 1
+      - raw: "生如夏花"
+        score: 1
+      - raw: "成为女孩子的声音！ [（链接）](https://project-trans.github.io/jyosei-guide/)"
+        score: 1
+      - raw: "这就是性别焦虑，供参考 [（链接）](https://genderdysphoria.fyi/zh/)"
+        score: 1
+      - raw: "Transonline 文档库 [（链接）](https://docs.transonline.org.cn/)"
+        score: 1
+      - raw: "Mtf Party [（链接）](https://hub.mtf.party/)"
+        score: 1
+      - raw: "hrt.cafe [（链接）](https://hrt.cafe/)"
+        score: 1
+      - raw: "Transgender lost years [（链接）](https://github.com/KristallWang/Transgender-lost-years)"
+        score: 1
+      - raw: "awesome trans [（链接）](https://twitter.com/awesometrans_zh)"
+        score: 1
+      - raw: "Trans in Academia! Broadcast [（链接）](https://t.me/s/transacademia)"
+        score: 1 
+    group:
+      xiaoquanzi: 0.3
+  - raw: "占位符"
+    ans:
+      - raw: "这是一个衡量激进程度的题目，但还没完工，就先这样了"
+        score: 114514 
+    group:
+      politics: 1

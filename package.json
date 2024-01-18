@@ -1,0 +1,16 @@
+{
+  "name": "mtftest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^14.0.0",
+    "stylus": "^0.62.0",
+    "uglify-js": "^3.17.4"
+  },
+  "scripts": {
+    "watch": "node watch.js"
+  }
+}
