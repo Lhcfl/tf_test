@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", async function () {
       if (str) {
         const answer = str.split("6");
         answer.forEach(ans_id => {
-          $(`#problem-${problem_id}-ans-${ans_id}`).click();
+          $(`#problem-${problem_id}-ans-${parseInt(ans_id, 6)}`).click();
         })
       }
     });
