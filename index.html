@@ -10,7 +10,7 @@
     </div>`;e+=Object.keys(data.groups).map(t=>`<div class="result-group">
         <h3>${data.groups[t].name}</h3>
         <div class="description">${data.groups[t].description}</div>
-        <p>得分：${a[t]}（满分${o[t]}） ${Math.round(a[t]/o[t]*100)}% </p>
+        <p>得分：${a[t].toFixed(1)}（满分${o[t].toFixed(1)}） ${Math.round(a[t]/o[t]*100)}% </p>
         <details>
           <summary>详细信息</summary>
           <p>得分情况：</p>
@@ -23,7 +23,7 @@
             ${Object.keys(r[t]).map(e=>`
                 <tr>
                   <td><a href="#problem-${e}-container">${Number(e)+1}</a></td>
-                  <td>${r[t][e]}</td>
+                  <td>${Math.round(10*r[t][e])/10}</td>
                 </tr>`).join("")}
             </tbody>
           </table>

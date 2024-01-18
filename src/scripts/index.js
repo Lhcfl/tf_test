@@ -85,7 +85,7 @@ function genResult(score, score_max, score_of_problem) {
       return `<div class="result-group">
         <h3>${data.groups[groupName].name}</h3>
         <div class="description">${data.groups[groupName].description}</div>
-        <p>得分：${score[groupName]}（满分${score_max[groupName]}） ${Math.round(score[groupName]/score_max[groupName] * 100)}% </p>
+        <p>得分：${score[groupName].toFixed(1)}（满分${score_max[groupName].toFixed(1)}） ${Math.round(score[groupName]/score_max[groupName] * 100)}% </p>
         <details>
           <summary>详细信息</summary>
           <p>得分情况：</p>
@@ -99,7 +99,7 @@ function genResult(score, score_max, score_of_problem) {
               Object.keys(score_of_problem[groupName]).map(pid => `
                 <tr>
                   <td><a href="#problem-${pid}-container">${Number(pid) + 1}</a></td>
-                  <td>${score_of_problem[groupName][pid]}</td>
+                  <td>${Math.round(score_of_problem[groupName][pid] * 10) / 10}</td>
                 </tr>`
               ).join("")
             }
